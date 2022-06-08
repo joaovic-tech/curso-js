@@ -4,11 +4,12 @@ const elements = [
   {tag: 'footer', texto: 'Tag <footer> : Frase 3'},
   {tag: 'section', texto: 'Tag <section> : Frase 4'}
 ];
+
 const container = document.querySelector('.container');
 const divMain = document.createElement('div');
 
 for(element of elements){
-  const { tag, texto } = element // desestruturar
+  const { tag, texto } = element // desestruturando
   const createTag = document.createElement(tag);
   createTag.innerText = texto;
   divMain.appendChild(createTag);
