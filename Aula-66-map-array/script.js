@@ -26,7 +26,7 @@ const comIDs = pessoas.map(function (obj, indice) {
   return obj
 });
 
-// para não ser alterado podemos usar o rast operato
+// para não ser alterado podemos usar o spread operator
 const addIDs = pessoas.map(function (obj, indice) {
   const newObj = { ...obj };
   newObj.id = indice;

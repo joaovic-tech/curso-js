@@ -1,4 +1,4 @@
-// Função construtora -> Retorna objetos
+// Função construtora -> Retorna objetos - Toda função construtora tem um prototype
 // Função fabrica -> Retorna objetos
 // Construtora -> Pessoa (new)
 
