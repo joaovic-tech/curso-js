@@ -27,7 +27,7 @@ ValidaCPF.prototype.criaDigito = function (cpfParcial) {
   const total = cpfArray.reduce((ac, val) => {
     ac += (regressivo * Number(val));
     regressivo--;
-    return ac
+    return ac;
   }, 0);
   const digito = 11 - (total % 11);
   return digito > 9 ? '0' : String(digito);
@@ -39,7 +39,7 @@ ValidaCPF.prototype.isSequencia = function () {
 }
 
 const cpf = new ValidaCPF('705.484.450-52');
-console.log(cpf)
+console.log(cpf);
 
 if (cpf.valida()) {
   console.log('Cpf válido');
