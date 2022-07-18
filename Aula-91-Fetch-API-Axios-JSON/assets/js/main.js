@@ -7,6 +7,7 @@ axios('./assets/json/pessoas.json')
 
 function mostrarPessoas(json) {
   const table = document.createElement('table');
+  console.log(json)
 
   for (let pessoa of json) {
     const tr = document.createElement('tr');
