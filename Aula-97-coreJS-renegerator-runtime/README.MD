@@ -1,0 +1,1 @@
+Nessa Aula temos uma modificação no arquivo `src/main.js` e importado as libs  core-js e regenerator-runtime para que navegadores antigos não gere erros utilizando esse pacotes. 
