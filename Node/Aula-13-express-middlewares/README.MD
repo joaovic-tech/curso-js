@@ -3,4 +3,4 @@ O express é inteiro baseado em Middlewares
 
 O que é uma função middleware?
 * Resultado de imagem para express middleware
-Funções de Middleware são funções que tem acesso ao objeto de solicitação ( req ), o objeto de resposta ( res ), e a próxima função de middleware no ciclo solicitação-resposta do aplicativo. A próxima função middleware é comumente denotada por uma variável chamada next .
+Funções de Middleware são funções que tem acesso ao objeto de solicitação ( req ), o objeto de resposta ( res ), e a próxima função de middleware no ciclo solicitação-resposta do aplicativo. A próxima função middleware é comumente denotada por uma variável chamada next.
