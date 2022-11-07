@@ -17,19 +17,13 @@ function Contato(body) {
   this.contato = null;
 }
 
-Contato.buscaPorId = async function(id) {
-  if (typeof id !== 'string') return;
-  const user = await ContatoModel.findById(id);
-  return user;
-}
-
-Contato.prototype.register = async function() {
+Contato.prototype.register = async function () {
   this.valida();
   if (this.errors.length > 0) return;
   this.contato = await ContatoModel.create(this.body);
 };
 
-Contato.prototype.valida = function() {
+Contato.prototype.valida = function () {
   this.cleanUp();
 
   // Validação
@@ -38,10 +32,10 @@ Contato.prototype.valida = function() {
   if (!this.body.nome) this.errors.push('Nome é um campo obrigatório!');
   if (!this.body.email && !this.body.telefone) {
     this.errors.push('Precisar adicionar um e-mail ou telefone no contato.');
-  } 
+  }
 };
 
-Contato.prototype.cleanUp = function() {
+Contato.prototype.cleanUp = function () {
   for (const key in this.body) {
     if (typeof this.body[key] !== 'string') {
       this.body[key] = '';
@@ -56,11 +50,32 @@ Contato.prototype.cleanUp = function() {
   }
 };
 
-Contato.prototype.edit = async function(id) {
+Contato.prototype.edit = async function (id) {
   if (typeof id !== 'string') return;
   if (this.errors.length > 0) return;
   this.valida();
   this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
+};
+
+// Métodos estáticos
+Contato.buscaPorId = async function (id) {
+  if (typeof id !== 'string') return;
+  const contato = await ContatoModel.findById(id);
+  return contato;
+};
+
+Contato.buscaContatos = async function () {
+  const contatos = await ContatoModel.find()
+    .sort({ criadoEm: -1 });
+  console.log(contatos)
+  return contatos;
+};
+
+Contato.delete = async function (id) {
+  if (typeof id !== 'string') return;
+
+  const contato = await ContatoModel.findOneAndDelete({ _id: id });
+  return contato;
 };
 
 module.exports = Contato;
