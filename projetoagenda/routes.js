@@ -15,6 +15,7 @@ route.get('/login', loginController.index);
 route.post('/login/register', loginController.register);
 route.post('/login/login', loginController.login);
 route.get('/login/logout', loginController.logout);
+route.get('/login/users', loginController.listarUsuarios);
 
 // Rotas de contato
 route.get('/contato', loginRequired, contatoController.index);
@@ -22,6 +23,6 @@ route.post('/contato/register', loginRequired, contatoController.register);
 route.get('/contato/:id', loginRequired, contatoController.editIndex);
 route.post('/contato/edit/:id', loginRequired, contatoController.edit);
 route.get('/contato/delete/:id', loginRequired, contatoController.delete);
-route.get('/contatos', loginRequired, contatoController.listarContatos);
+route.get('/contatos', contatoController.listarContatos);
 
 module.exports = route;

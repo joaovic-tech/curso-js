@@ -4,10 +4,13 @@ export default class Login {
   constructor(formId) {
     this.form = document.getElementById(formId);
     this.inputs = document.querySelectorAll('.form-control');
+    this.emailInput = document.getElementById('email-register');
+    this.emails = [];
   }
 
   init() {
     this.events();
+    this.getAllContacts();
   }
 
   events() {
@@ -25,15 +28,31 @@ export default class Login {
     }
   }
 
+  async getAllContacts() {
+    try {
+      const response = await fetch('/login/users');
+
+      const data = await response.json();
+      data.forEach(({ email }) => {
+        this.emails.push(email);
+      });
+    } catch (e) { console.log(e) }
+  }
+
+  userExist() {
+    for (const email of this.emails) {
+      if (email === this.emailInput.value) return true;
+    }
+    return false;
+  }
+
   isValid(input) {
     if (input.type === 'email' && validator.isEmail(input.value)) {
       input.classList.remove('is-invalid');
       input.classList.add('is-valid');
-      this.cleanMessage();
     } else if (input.type === 'password' && input.value.length > 3) {
       input.classList.remove('is-invalid');
       input.classList.add('is-valid');
-      this.cleanMessage();
     } else {
       input.classList.remove('is-valid');
       input.classList.add('is-invalid');
@@ -46,6 +65,12 @@ export default class Login {
     const passwordInput = el.querySelector('input[name="password"]');
     let error = false;
     this.cleanMessage();
+
+    if (this.userExist()) {
+      this.messageError('Esse e-mail já existe!', this.emailInput);
+      this.emailInput.classList.add('is-invalid');
+      this.emailInput.classList.remove('is-valid');
+    }
 
     if (!validator.isEmail(emailInput.value)) {
       this.messageError('E-mail inválido', emailInput);

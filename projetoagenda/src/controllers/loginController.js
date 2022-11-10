@@ -52,6 +52,11 @@ exports.login = async function(req, res) {
   }
 };
 
+exports.listarUsuarios = async function (req, res) {
+  const users = await Login.buscaUsers();
+  res.json(users);
+};
+
 exports.logout = function(req, res) {
   req.session.destroy();
   res.redirect('/');

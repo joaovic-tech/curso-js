@@ -11,7 +11,6 @@ export default class Login {
     if (!this.form) return;
     this.form.addEventListener('submit', e => {
       e.preventDefault();
-      console.log('FORM não enviado');
     });
   }
 }

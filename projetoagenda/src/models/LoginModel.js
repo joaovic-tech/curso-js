@@ -79,4 +79,13 @@ class Login {
   }
 }
 
+Login.buscaUsers = async function () {
+  const users = await LoginModel.find();
+  const arrayUsers = [];
+  users.forEach(({ email }) => {
+    arrayUsers.push({email});
+  });
+  return users;
+};
+
 module.exports = Login;

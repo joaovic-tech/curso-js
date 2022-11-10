@@ -7,10 +7,12 @@ export default class Contato {
     this.emailInput = document.querySelector('input[id="email"]');
     this.telInput = document.querySelector('input[id="telefone"]');
     this.inputs = document.querySelectorAll('.form-control');
+    this.emails = [];
   }
 
   init() {
     this.events();
+    this.getAllContacts();
   }
 
   events() {
@@ -26,6 +28,24 @@ export default class Contato {
         this.isValid(input)
       });
     }
+  }
+
+  async getAllContacts() {
+    try {
+      const response = await fetch('/contatos');
+
+      const data = await response.json();
+      data.forEach(({ email }) => {
+        this.emails.push(email);
+      });
+    } catch (e) { console.log(e) }
+  }
+
+  userExist() {
+    for (const email of this.emails) {
+      if (email === this.emailInput.value) return true;
+    }
+    return;
   }
 
   isValid(input) {
@@ -67,6 +87,15 @@ export default class Contato {
   validate() {
     let error = false;
     this.cleanMessage();
+
+    if (this.userExist()) {
+      this.messageError('Esse e-mail já existe!', this.emailInput);
+      this.emailInput.classList.add('is-invalid');
+      this.emailInput.classList.remove('is-valid');
+
+      this.labelDanger(this.emailInput.id, 'add');
+      error = true;
+    }
 
     if (!this.nameInput.value) {
       this.messageError('Precisar ter um nome.', this.nameInput);
