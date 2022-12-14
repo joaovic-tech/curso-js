@@ -1,4 +1,4 @@
-Padrão MVC
-* M - Model
-* V - View
-* C - Controller
+### Utilizando os padrão MVC
+* M => Model
+* V => View
+* C => Controller
