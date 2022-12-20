@@ -19,6 +19,7 @@ module.exports = {
     'linebreak-style': 'off',
     'class-methods-use-this': 'off',
     'import/first': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'quotes': 'off',
     'quote-props': 'off',
     'arrow-body-style': 'off',
