@@ -16,7 +16,15 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
-    'linebreak-style': 0,
+    'linebreak-style': 'off',
     'class-methods-use-this': 'off',
+    'import/first': 'off',
+    'quotes': 'off',
+    'quote-props': 'off',
+    'arrow-body-style': 'off',
+    'strict': 'off',
+    'no-param-reassign': 'off',
+    'no-undef': 'off',
+    'no-restricted-syntax': 'off',
   },
 };
