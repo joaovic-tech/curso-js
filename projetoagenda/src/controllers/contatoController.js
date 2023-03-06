@@ -68,6 +68,10 @@ exports.delete = async function (req, res) {
 };
 
 exports.listarContatos = async function (req, res) {
+ try {
   const contatos = await Contato.buscaContatos();
   res.json(contatos);
+ } catch (error) {
+  console.log(error)
+ }
 };
