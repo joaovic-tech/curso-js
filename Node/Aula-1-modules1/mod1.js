@@ -1,20 +1,18 @@
 const nome = 'João';
 const sobrenome = 'Victor';
 
-const falaNome = () => {
-  return `${nome} ${sobrenome}`;
-};
+const falaNome = () => `${nome} ${sobrenome}`;
 
-// Exporta maneira 2
+// Exporta maneira 1
 
 // module.exports.nome = nome;
 // module.exports.sobrenome = sobrenome;
 // module.exports.falaNome = falaNome;
 
 // Exporta maneira 2
-exports.nome = nome;
-exports.sobrenome = sobrenome;
-exports.falaNome = falaNome;
+// exports.NOME = nome;
+// exports.sobrenome = sobrenome;
+// exports.falaNome = falaNome;
 
 // NOTA:
 // A palavra que vem depois do export não necessariamente
@@ -23,11 +21,17 @@ exports.falaNome = falaNome;
 // Exporta maneira 3 (Não é muito usado)
 this.qualquerCoisa = 'O que eu quiser exportar';
 
-// Exporta maneira 4
+// Criando uma classe Pessoa
 class Pessoa {
-  constructor(nome) {
+  constructor(nome, idade, veiculo) {
     this.nome = nome;
+    this.idade = idade;
+    this.veiculo = veiculo;
   }
 }
 
-module.exports = { nome, sobrenome, Pessoa }
+// Exportar maneira 4
+// exports.Pessoa = Pessoa;
+
+// Exporta maneira 5 (exportando tudo)
+module.exports = { nome, sobrenome, falaNome, Pessoa }
