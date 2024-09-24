@@ -87,3 +87,4 @@ Neste repositório, você encontrará exemplos práticos e códigos desenvolvido
 
 Os arquivos estão organizados conforme as boas práticas de desenvolvimento com Webpack, separando claramente a lógica de negócio, configurações do Webpack e assets.
 
+> Este projeto está sob a licença [GNU GENERAL PUBLIC LICENSE.](./LICENSE)
