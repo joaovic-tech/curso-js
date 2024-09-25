@@ -11,21 +11,10 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: 2018,
+    sourceType: "module",
   },
   rules: {
-    'no-console': 'off',
-    'linebreak-style': 'off',
-    'class-methods-use-this': 'off',
-    'import/first': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'quotes': 'off',
-    'quote-props': 'off',
-    'arrow-body-style': 'off',
-    'strict': 'off',
-    'no-param-reassign': 'off',
-    'no-undef': 'off',
-    'no-restricted-syntax': 'off',
-  },
+    "no-console": "off",
+  }
 };
