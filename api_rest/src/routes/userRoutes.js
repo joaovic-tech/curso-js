@@ -6,10 +6,15 @@ import loginRequired from '../middlewares/loginRequired';
 
 const router = Router();
 
-router.post('/', UserController.store);
-router.get('/', loginRequired, UserController.index);
-router.get('/:id', UserController.show);
-router.put('/:id', UserController.update);
-router.delete('/:id', UserController.delete);
+// Essas rotas em uma aplicação real são uma falha de segurança enorme pois
+// * Uma lista todos os usuários da base de dados
+// * A outra lista o usuário pelo seu id -> Recomendado se aplicação necessita dessa função
+// router.get('/', loginRequired, UserController.index); // ---------- Lista usuários
+// router.get('/:id', UserController.show); // ---------- Lista usuário
+
+
+router.post('/', UserController.store); // Cria user
+router.put('/', loginRequired, UserController.update); // Edita user
+router.delete('/', loginRequired, UserController.delete); // Deleta user
 
 export default router;
