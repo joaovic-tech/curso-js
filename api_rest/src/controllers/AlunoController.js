@@ -1,10 +1,31 @@
 import Aluno from '../models/Aluno';
+import Foto from '../models/Foto';
 
 class AlunoController {
   async index(req, res) {
-    const alunos = await Aluno.findAll();
+    const alunos = await Aluno.findAll({
+      attributes: [
+        'id',
+        'nome',
+        'sobrenome',
+        'email',
+        'idade',
+        'peso',
+        'altura',
+      ],
+      order: [
+        ['id', 'DESC'],
+        [Foto, 'id', 'DESC']
+      ],
+      include: {
+        model: Foto,
+        attributes: ['filename']
+      }
+    });
 
-    return res.json({ alunos });
+    return res.json({
+      alunos
+    });
   }
 
   async store(req, res) {
@@ -15,14 +36,16 @@ class AlunoController {
     } catch (e) {
       console.log(e);
       return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
+        errors: e.errors.map((err) => err.message)
       });
     }
   }
 
   async show(req, res) {
     try {
-      const { id } = req.params;
+      const {
+        id
+      } = req.params;
 
       if (!id) {
         return res.status(400).json({
@@ -30,7 +53,25 @@ class AlunoController {
         });
       }
 
-      const aluno = await Aluno.findByPk(id);
+      const aluno = await Aluno.findByPk(id, {
+        attributes: [
+          'id',
+          'nome',
+          'sobrenome',
+          'email',
+          'idade',
+          'peso',
+          'altura',
+        ],
+        order: [
+          ['id', 'DESC'],
+          [Foto, 'id', 'DESC']
+        ],
+        include: {
+          model: Foto,
+          attributes: ['filename']
+        }
+      });
 
       if (!aluno) {
         return res.status(400).json({
@@ -48,7 +89,9 @@ class AlunoController {
 
   async delete(req, res) {
     try {
-      const { id } = req.params;
+      const {
+        id
+      } = req.params;
 
       if (!id) {
         return res.status(400).json({
@@ -77,7 +120,9 @@ class AlunoController {
 
   async update(req, res) {
     try {
-      const { id } = req.params;
+      const {
+        id
+      } = req.params;
 
       if (!id) {
         return res.status(400).json({
