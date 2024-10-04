@@ -1,0 +1,3 @@
+[submodule "api_rest_cursojs"]
+	path = api_rest_cursojs
+	url = https://github.com/joaovic-tech/api_rest_cursojs
