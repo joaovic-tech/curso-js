@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style.css";
 
 export const Redirect = () => {
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState(2);
   const timeout = useRef(0);
   const navigate = useNavigate();
 
@@ -15,7 +14,9 @@ export const Redirect = () => {
     }, 1000);
 
     if (time === 0) {
-      navigate("/");
+      navigate("/about", {
+        state: `This is the state ${Math.random()}`,
+      });
     }
 
     return () => clearTimeout(timeout.current);

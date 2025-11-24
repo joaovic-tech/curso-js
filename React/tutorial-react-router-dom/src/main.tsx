@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./styles/global.css";
 import { Home } from "./components/Home";
 import { About } from "./components/About";
-import { Post } from "./components/Post";
+import { Posts } from "./components/Posts";
+import { Post } from "./components/Posts/Post";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Menu } from "./components/menu";
 import { Redirect } from "./components/Redirect";
@@ -16,8 +17,10 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/posts/:id" element={<Post />} />
-        <Route path="/posts" element={<Post />} />
+        {/* <Route path="/posts/: id" element={<Post />} /> */}
+        <Route path="/posts" element={<Posts />}>
+          <Route path=":id" element={<Post />} />
+        </Route>
         <Route path="/redirect" element={<Redirect />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
