@@ -17,5 +17,6 @@ input.focus();
 const body4 = document.querySelector('body') as unknown as number;
 
 // Non-null assertion (!)
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const body2 = document.querySelector('body')!;
 body2.style.background = 'red';

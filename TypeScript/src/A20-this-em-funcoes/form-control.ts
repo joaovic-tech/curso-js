@@ -30,7 +30,10 @@ function checkEmail(input: HTMLInputElement): void {
   if (!isEmail(input.value)) showErrorMessage(input, 'Email inválido');
 }
 
-function checkEqualPasswords(password: HTMLInputElement, password2: HTMLInputElement) {
+function checkEqualPasswords(
+  password: HTMLInputElement,
+  password2: HTMLInputElement,
+) {
   if (password.value !== password2.value) {
     showErrorMessage(password, 'Senhas não batem');
     showErrorMessage(password2, 'Senhas não batem');
@@ -38,18 +41,24 @@ function checkEqualPasswords(password: HTMLInputElement, password2: HTMLInputEle
 }
 
 function hideErrorMessages(form: HTMLFormElement): void {
-  form.querySelectorAll('.' + SHOW_ERROR_MESSAGES).forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES));
+  form
+    .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+    .forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES));
 }
 
 function showErrorMessage(input: HTMLInputElement, msg: string): void {
   const formFields = input.parentElement as HTMLDivElement;
-  const errorMessage = formFields.querySelector('.error-message') as HTMLSpanElement;
+  const errorMessage = formFields.querySelector(
+    '.error-message',
+  ) as HTMLSpanElement;
   errorMessage.innerText = msg;
   formFields.classList.add(SHOW_ERROR_MESSAGES);
 }
 
 function shouldSendForm(form: HTMLFormElement): boolean {
   let send = true;
-  form.querySelectorAll('.' + SHOW_ERROR_MESSAGES).forEach(() => (send = false));
+  form
+    .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+    .forEach(() => (send = false));
   return send;
 }

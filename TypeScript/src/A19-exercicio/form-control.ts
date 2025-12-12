@@ -33,7 +33,9 @@ export class FormControl {
 
   showErrorMessage(input: HTMLInputElement, message: string): void {
     const formFields = input.parentElement as HTMLDivElement;
-    const errorMessage = formFields.querySelector('.error-message') as HTMLSpanElement;
+    const errorMessage = formFields.querySelector(
+      '.error-message',
+    ) as HTMLSpanElement;
     errorMessage.innerText = message;
     formFields.classList.add(SHOW_ERROR_MESSAGES);
   }
@@ -46,7 +48,9 @@ export class FormControl {
 
   shouldSendForm(form: HTMLFormElement): boolean {
     let shouldSend = true;
-    form.querySelectorAll('.' + SHOW_ERROR_MESSAGES).forEach(() => (shouldSend = false));
+    form
+      .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+      .forEach(() => (shouldSend = false));
     return shouldSend;
   }
 
@@ -68,7 +72,9 @@ export class FormControl {
     this.checkPasswordMatch(password, password2);
 
     if (this.shouldSendForm(this.form)) {
-      const formMessageFinal = document.getElementById('form-message-final') as HTMLParagraphElement;
+      const formMessageFinal = document.getElementById(
+        'form-message-final',
+      ) as HTMLParagraphElement;
       formMessageFinal.style.display = 'block';
     }
   }

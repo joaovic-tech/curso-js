@@ -1,5 +1,10 @@
 export class Pessoa {
-  constructor(private nome: string, private sobrenome: string, private idade: number, private _cpf: string) {}
+  constructor(
+    private nome: string,
+    private sobrenome: string,
+    private idade: number,
+    private _cpf: string,
+  ) {}
 
   set cpf(cpf: string) {
     console.log('SETTER Chamado!!!');

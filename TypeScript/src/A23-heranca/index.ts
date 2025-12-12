@@ -1,5 +1,10 @@
 export class Pessoa {
-  constructor(public nome: string, public sobrenome: string, private idade: number, protected cpf: string) {}
+  constructor(
+    public nome: string,
+    public sobrenome: string,
+    private idade: number,
+    protected cpf: string,
+  ) {}
 
   getIdade(): number {
     return this.idade;

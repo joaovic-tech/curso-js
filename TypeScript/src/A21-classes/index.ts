@@ -1,5 +1,8 @@
 export class Colaborador {
-  constructor(public readonly nome: string, public readonly sobrenome: string) {}
+  constructor(
+    public readonly nome: string,
+    public readonly sobrenome: string,
+  ) {}
 }
 
 export class Empresa {

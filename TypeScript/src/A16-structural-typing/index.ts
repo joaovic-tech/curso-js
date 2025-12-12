@@ -6,7 +6,9 @@ type User = {
 type VerifyUserFn = (user: User, sentValue: User) => boolean;
 
 const verifyUser: VerifyUserFn = (user, sentValue) => {
-  return user.username === sentValue.username && user.password === sentValue.password;
+  return (
+    user.username === sentValue.username && user.password === sentValue.password
+  );
 };
 
 const bdUser = { username: 'joao', password: '123456' };

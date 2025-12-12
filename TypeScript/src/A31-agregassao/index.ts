@@ -1,7 +1,7 @@
 export class CarrinhoDeCompras {
   private readonly produtos: Produto[] = [];
 
-  inserirProdutos(...produtos: Produto[]) {
+  inserirProdutos(...produtos: Produto[]): void {
     for (const produto of produtos) {
       this.produtos.push(produto);
     }
@@ -24,8 +24,12 @@ export class CarrinhoDeCompras {
   }
 
   info(): void {
-    console.log(`\nQuantidade de produtos no carrinho: ${this.quantidadeDeProduto()} produtos`);
-    console.log(`Valor total de produtos no carrinho: R$ ${this.valorTotal().toFixed(2)}`);
+    console.log(
+      `\nQuantidade de produtos no carrinho: ${this.quantidadeDeProduto()} produtos`,
+    );
+    console.log(
+      `Valor total de produtos no carrinho: R$ ${this.valorTotal().toFixed(2)}`,
+    );
   }
 }
 

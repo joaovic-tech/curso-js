@@ -8,7 +8,11 @@
 export class Database {
   private static database: Database;
 
-  private constructor(private host: string, private user: string, private password: string) {}
+  private constructor(
+    private host: string,
+    private user: string,
+    private password: string,
+  ) {}
 
   connect(): void {
     console.log(`Conectado: ${this.host}, ${this.user}, ${this.password}`);
@@ -30,7 +34,11 @@ db1.connect();
 
 console.log('_'.repeat(50));
 
-const db2 = Database.getDatabase('https:123.123.22:8080', 'admin', 'a09sd8a09sd8');
+const db2 = Database.getDatabase(
+  'https:123.123.22:8080',
+  'admin',
+  'a09sd8a09sd8',
+);
 db1.connect();
 
 console.log(db1 === db2);

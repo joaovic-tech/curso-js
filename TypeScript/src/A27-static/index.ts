@@ -2,7 +2,12 @@ export class Pessoa {
   static IDADEPADRAO = 0;
   static CPFPADRAO = '000.000.000-00';
 
-  constructor(public nome: string, public sobrenome: string, public idade: number, public cpf: string) {}
+  constructor(
+    public nome: string,
+    public sobrenome: string,
+    public idade: number,
+    public cpf: string,
+  ) {}
 
   static criaPessoa(nome: string, sobrenome: string): Pessoa {
     return new Pessoa(nome, sobrenome, Pessoa.IDADEPADRAO, Pessoa.CPFPADRAO);
