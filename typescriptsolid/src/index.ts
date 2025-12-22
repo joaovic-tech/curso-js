@@ -1,2 +1,1 @@
-const username = 'joaovic-tech';
-console.log(username);
+console.log('Olá mundo');
