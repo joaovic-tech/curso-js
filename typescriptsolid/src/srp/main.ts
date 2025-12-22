@@ -18,7 +18,6 @@ shoppingCart.addItem(new Product('Monitor', 1999.9));
 
 console.log(shoppingCart.items);
 console.log(shoppingCart.total());
-console.log(shoppingCart.totalWithDiscount(0.5));
 console.log(order.orderStatus);
 order.checkout();
 console.log(order.orderStatus);

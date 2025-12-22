@@ -21,10 +21,6 @@ export class ShoppingCart {
       .toFixed(2);
   }
 
-  totalWithDiscount(discount: number): number {
-    return this.total() - this.total() * discount;
-  }
-
   isEmpty(): boolean {
     return this._items.length === 0;
   }
