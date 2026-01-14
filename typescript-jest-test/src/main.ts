@@ -9,7 +9,7 @@
 
 import { ShoppingCart } from './classes/shopping-cart';
 import { Order } from './classes/order';
-import { Persistency } from './persistency';
+import { Persistency } from './services/persistency';
 import { Product } from './classes/product';
 import { FiftyPercentDiscount } from './classes/discount';
 import { EnterpriseCustomer } from './classes/customer';
