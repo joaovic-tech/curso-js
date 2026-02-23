@@ -2,7 +2,7 @@ import { IUser } from '../interfaces/IUser';
 
 export class MyDatabaseClassic {
   private static _instance: MyDatabaseClassic | null = null;
-  public users: IUser[] = [];
+  private users: IUser[] = [];
 
   private constructor() {}
 
