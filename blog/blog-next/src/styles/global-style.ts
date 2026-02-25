@@ -6,5 +6,10 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: none;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  body {
+    background: white;
   }
 `;
