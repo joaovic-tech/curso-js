@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { HeaderHome, HeaderHomeLeft, HeaderHomeRight } from './styles';
 import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 export type HomePageProps = {
   posts: PostData[];
@@ -53,6 +54,7 @@ export default function HomePage({ posts }: HomePageProps) {
         </HeaderHome>
         <Posts posts={posts} />
       </Section>
+      <Footer />
     </MainContainer>
   );
 }

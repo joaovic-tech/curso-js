@@ -26,7 +26,7 @@ export const LoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #fff5d8;
+  background: ${({ theme }) => theme.colors.background};
   gap: 2rem;
 `;
 
@@ -53,10 +53,15 @@ export const LoadingDots = styled.div`
 `;
 
 export const LoadingText = styled.p`
-  font-family: 'Courier New', Courier, monospace;
+  font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 1.1rem;
-  color: #333;
-  background: linear-gradient(90deg, #333 25%, ${({ theme }) => theme.colors.primary} 50%, #333 75%);
+  color: ${({ theme }) => theme.colors.textPrimary};
+  background: linear-gradient(
+    90deg,
+    ${({ theme }) => theme.colors.textPrimary} 25%,
+    ${({ theme }) => theme.colors.primary} 50%,
+    ${({ theme }) => theme.colors.textPrimary} 75%
+  );
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;

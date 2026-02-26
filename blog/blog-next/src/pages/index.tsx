@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 import { getAllPosts } from '@/data/posts/get-all-posts';
 import { PostData } from '@/domain/posts/post';
 import HomePage from '@/containers/HomePage';
@@ -19,9 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home({ posts }: HomeProps) {
-  const router = useRouter();
-
-  if (router.isFallback) {
+  if (!posts) {
     return <Loading />;
   }
 

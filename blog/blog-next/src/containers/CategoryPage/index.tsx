@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Title } from './styles';
 import { MainContainer, Section } from '@/styles/global-style';
 import BackButton from '@/components/BackButton';
+import Footer from '@/components/Footer';
 
 export default function CategoryPage({ posts }: CategoryPageProps) {
   const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ export default function CategoryPage({ posts }: CategoryPageProps) {
         </Title>
         <Posts posts={posts} />
       </Section>
+      <Footer />
     </MainContainer>
   );
 }
