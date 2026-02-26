@@ -6,11 +6,15 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: none;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: ${({ theme }) => theme.fonts.primary};
   }
 
   body {
-    background: #FFF5D8;
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.textPrimary};
+    transition: background 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 `;
 
@@ -18,6 +22,7 @@ export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-height: 100vh;
 `;
 
 export const Section = styled.section`
@@ -29,14 +34,8 @@ export const Section = styled.section`
 
   .cover {
     width: 100%;
-    height: 25rem;
+    height: auto;
     object-fit: cover;
-    border-radius: 1rem;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-    }
+    border-radius: 0.75rem;
   }
 `;

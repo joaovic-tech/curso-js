@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.textPrimary};
   text-align: center;
   margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 
   span {
-    color: violet;
+    color: ${({ theme }) => theme.colors.accent};
   }
 `;

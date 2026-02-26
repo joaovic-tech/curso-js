@@ -18,34 +18,36 @@ export const HeaderHomeLeft = styled.div`
   flex-direction: row;
   gap: 2rem;
   flex: 1;
-  justify-content: left;
-  align-items: left;
+  align-items: center;
 
   @media (max-width: 900px) {
     flex-direction: column;
+    text-align: center;
   }
 
   img {
-    border-radius: 10%;
-    border: 0.5rem solid #d4c79f;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    object-fit: cover;
   }
 
   div {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #63542a;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.textHeading};
+    letter-spacing: -0.02em;
   }
 
   p {
-    font-size: 1rem;
-    color: #63542a;
-    font-weight: bold;
+    font-size: 0.95rem;
+    color: ${({ theme }) => theme.colors.textSecondary};
+    font-weight: 400;
+    line-height: 1.5;
   }
 `;
 
@@ -53,52 +55,53 @@ export const HeaderHomeRight = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;
-  gap: 2rem;
+  gap: 1.5rem;
   flex: 1;
+  justify-content: center;
 
   h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #63542a;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: ${({ theme }) => theme.colors.textHeading};
+    letter-spacing: -0.01em;
   }
 
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    align-items: right;
-    gap: 1rem;
+    justify-content: flex-end;
+    gap: 0.8rem;
     list-style: none;
   }
 
   a {
     display: flex;
-    flex-direction: row;
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 0.6rem;
-    border-radius: 100%;
-    transition: all 0.3s ease-in-out;
-    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    width: 44px;
+    height: 44px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    color: ${({ theme }) => theme.colors.textWhite};
 
     &:hover {
-      transform: translateY(-0.5rem);
+      opacity: 0.8;
     }
   }
 
   .link-github {
-    background: #4a4a4a;
+    background: ${({ theme }) => theme.colors.social.github};
   }
 
   .link-linkedin {
-    background: #7a9eb1;
+    background: ${({ theme }) => theme.colors.social.linkedin};
   }
 
   .link-x {
-    background: #333333;
+    background: ${({ theme }) => theme.colors.social.x};
   }
 
   .link-instagram {
-    background: #c18c8c;
+    background: ${({ theme }) => theme.colors.social.instagram};
   }
 `;

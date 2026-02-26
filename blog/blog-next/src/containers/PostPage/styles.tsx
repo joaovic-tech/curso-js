@@ -4,29 +4,31 @@ export const SectionTop = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 
   a {
-    color: #666;
+    color: ${({ theme }) => theme.colors.textSecondary};
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
   }
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
   text-align: center;
+  letter-spacing: -0.02em;
 `;
 
 export const Paragraph = styled.p`
-  font-size: 0.8rem;
-  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  margin: 1rem 0 2rem 0;
   text-align: left;
-  color: #666;
-  font-weight: bold;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-weight: 400;
 `;
 
 export const Span = styled.span`
-  margin-bottom: 1rem;
-  color: violet;
+  color: ${({ theme }) => theme.colors.accent};
+  font-weight: 600;
 `;
