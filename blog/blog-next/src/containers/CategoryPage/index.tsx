@@ -2,7 +2,8 @@ import Header from '@/components/Header';
 import Posts from '@/components/Posts';
 import { CategoryPageProps } from '@/pages/posts/category/[slug]';
 import { useEffect, useState } from 'react';
-import { MainContainer, Title } from './styles';
+import { Title } from './styles';
+import { MainContainer, Section } from '@/styles/global-style';
 
 export default function CategoryPage({ posts }: CategoryPageProps) {
   const [loading, setLoading] = useState(true);
@@ -20,10 +21,12 @@ export default function CategoryPage({ posts }: CategoryPageProps) {
   return (
     <MainContainer>
       <Header />
-      <Title>
-        Categoria: <span>{posts[0].category.name}</span>
-      </Title>
-      <Posts posts={posts} />
+      <Section>
+        <Title>
+          Categoria: <span>{posts[0].category.name}</span>
+        </Title>
+        <Posts posts={posts} />
+      </Section>
     </MainContainer>
   );
 }

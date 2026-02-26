@@ -9,12 +9,7 @@ export default function Posts({ posts }: { posts: PostData[] }) {
       {posts.map((post) => (
         <PostStyles key={post.id}>
           <Link href={`/post/${post.documentId}`}>
-            <Image
-              src={post.cover.url}
-              alt={post.title}
-              width={500}
-              height={500}
-            />
+            <Image src={post.cover.url} alt={post.title} width={500} height={500} />
 
             <PostTitle>{post.title}</PostTitle>
           </Link>

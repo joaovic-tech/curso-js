@@ -1,20 +1,28 @@
 import styled from 'styled-components';
 
-export const Content = styled.header`
-  background: #000;
-  padding: 2rem;
-  text-align: center;
+export const HeaderMain = styled.header`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 12rem;
 
   a {
-    font-size: large;
     text-decoration: none;
+    font-size: 1.5rem;
+    color: #000;
+    font-weight: bold;
     text-align: center;
-    color: #fff;
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
 
     &:hover {
       opacity: 0.8;
     }
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
   }
 `;

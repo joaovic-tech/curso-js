@@ -1,11 +1,12 @@
 import { PostProps } from '@/pages/post/[slug]';
 import Image from 'next/image';
-import { BackButton, Content, Paragraph, Section, Span, Title } from './styles';
+import { Paragraph, SectionTop, Span, Title } from './styles';
 import Header from '@/components/Header';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { MainContainer, Section } from '@/styles/global-style';
 
 export default function PostPage({ post }: PostProps) {
   const [loading, setLoading] = useState(true);
@@ -29,15 +30,17 @@ export default function PostPage({ post }: PostProps) {
   };
 
   return (
-    <Section key={post.id}>
+    <MainContainer>
       <Header />
-      {/* Botão de voltar flutuante usando o Next */}
-      <Link href="/">
-        <BackButton>Voltar</BackButton>
-      </Link>
-      <Content>
-        <Title>{post.title}</Title>
-        <Image src={post.cover.url} alt={post.title} width={500} height={500} />
+      <Section>
+        <SectionTop>
+          <Link href="/">&lt; Voltar</Link>
+          <Title>{post.title}</Title>
+          <br />
+        </SectionTop>
+        <Link href={post.cover.url} target="_blank">
+          <Image src={post.cover.url} alt={post.title} width={500} height={500} className="cover" />
+        </Link>
         <Paragraph>
           Publicado em {formatDate(post.createdAt)} por {post.author.name} em{' '}
           <Link href={`/posts/category/${post.category.name}`}>
@@ -45,7 +48,7 @@ export default function PostPage({ post }: PostProps) {
           </Link>
         </Paragraph>
         <Markdown remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
-      </Content>
-    </Section>
+      </Section>
+    </MainContainer>
   );
 }
