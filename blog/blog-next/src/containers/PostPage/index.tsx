@@ -4,6 +4,7 @@ import { Paragraph, SectionTop, Span, Title } from './styles';
 import Header from '@/components/Header';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import BackButton from '@/components/BackButton';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { MainContainer, Section } from '@/styles/global-style';
@@ -34,7 +35,7 @@ export default function PostPage({ post }: PostProps) {
       <Header />
       <Section>
         <SectionTop>
-          <Link href="/">&lt; Voltar</Link>
+          <BackButton />
           <Title>{post.title}</Title>
           <br />
         </SectionTop>

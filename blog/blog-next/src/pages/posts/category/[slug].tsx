@@ -2,6 +2,8 @@ import CategoryPage from '@/containers/CategoryPage';
 import { getPostsByCategory } from '@/data/posts/get-posts-by-category';
 import { PostData } from '@/domain/posts/post';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import Loading from '@/components/Loading';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -25,5 +27,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 export default function Category({ posts }: CategoryPageProps) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <Loading />;
+  }
+
   return <CategoryPage posts={posts} />;
 }

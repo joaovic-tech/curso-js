@@ -4,6 +4,7 @@ import { CategoryPageProps } from '@/pages/posts/category/[slug]';
 import { useEffect, useState } from 'react';
 import { Title } from './styles';
 import { MainContainer, Section } from '@/styles/global-style';
+import BackButton from '@/components/BackButton';
 
 export default function CategoryPage({ posts }: CategoryPageProps) {
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,7 @@ export default function CategoryPage({ posts }: CategoryPageProps) {
     <MainContainer>
       <Header />
       <Section>
+        <BackButton />
         <Title>
           Categoria: <span>{posts[0].category.name}</span>
         </Title>
